@@ -140,6 +140,8 @@ using command:
 ```
 npm install
 ```
+after that your project folder will look like this:  
+![image](https://upload-images.jianshu.io/upload_images/11121129-7c3e47e5d9cbaa20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ### run server
 
 ```
