@@ -90,7 +90,7 @@ const app = express()
 const proxy = require('express-http-proxy');
 const httpProxy = require('http-proxy');
 const odataProxy = httpProxy.createProxyServer({ 
-  target: 'https://ldai4er9.wdf.sap.corp:44300', secure: false 
+  target: 'https://host:port', secure: false 
 });
 
 odataProxy.on('proxyReq', function (proxyReq, req, res, options) {  
