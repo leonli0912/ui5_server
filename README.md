@@ -147,6 +147,11 @@ after that your project folder will look like this:
 ```
 node static_server_https.js
 ```
+### test in browser
+run http://localhost:3000  
+![image](https://upload-images.jianshu.io/upload_images/11121129-c72ee879dca91ad2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+everything works fine  
+![image](https://upload-images.jianshu.io/upload_images/11121129-278d68d706bf05d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
