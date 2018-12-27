@@ -1,0 +1,16 @@
+{
+  "name": "ui5_server",
+  "version": "1.0.0",
+  "description": "node server host ui5 apps",
+  "main": "static_server_https.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "~4.16.4",
+    "express-http-proxy": "~1.5.0",
+    "http-proxy": "~1.17.0"
+  },
+  "author": "leon li",
+  "license": "ISC"
+}

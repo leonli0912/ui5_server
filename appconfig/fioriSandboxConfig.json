@@ -1,0 +1,18 @@
+{
+    "applications" : { 
+        "FinancialValidationResult-runValidationResultforReportedData": {
+            "additionalInformation": "SAPUI5.Component=fin.cons.vecresult",
+            "applicationType": "URL",
+            "url": "fin.cons.vecresult/webapp/",
+            "description": "Financial Validation Result",
+            "title": "Financial Validation Result"
+        },
+        "MySecondFioriObject-display" : {
+            "additionalInformation" : "SAPUI5.Component=com.mycompany.MySecondFioriApplication",
+            "applicationType" : "URL",
+            "url" : "/MySecondFioriApplication",
+            "title" : "My Second Fiori Application",
+            "description" : "My second Fiori application"
+        }
+    }
+}
