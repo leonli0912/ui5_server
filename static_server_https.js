@@ -22,10 +22,11 @@ var COOKIE = null;
 odataProxy.on('proxyReq', function(proxyReq, req, res, options) {
 	if (req.method === 'HEAD') {
 		console.log('request url....:', req.url);
-		console.log('request headers....:', req.headers.cookie);
+		console.log('request headers.cookie....:', req.headers.cookie);
+		COOKIE = null;
 		var cookies = req.headers.cookie.split(";");
 		for (var i = cookies.length - 1; i >= 0; i--) {
-			if(cookies[i].includes("SAP_SESSIONID_CCF_715")){
+			if (cookies[i].includes("SAP_SESSIONID_CCF_715")) {
 				COOKIE = cookies[i];
 			}
 		}
@@ -34,12 +35,13 @@ odataProxy.on('proxyReq', function(proxyReq, req, res, options) {
 	}
 	proxyReq.setHeader('sap-client', proxyTargets.ccf.client);
 	if (req.method === 'POST') {
-		console.log('CSRF:...', CSRF);
-		if (CSRF) {
+		
+		if (COOKIE) {
 			//proxyReq.setHeader('Content-Type', 'Application/atom+xml');
 			//proxyReq.setHeader('x-csrf-token', CSRF);
-			proxyReq.setHeader('X-Requested-With','XMLHttpRequest');
-			proxyReq.setHeader('cookie',COOKIE);
+			proxyReq.setHeader('X-Requested-With', 'XMLHttpRequest');
+			console.log('COOKIE:...', COOKIE);
+			proxyReq.setHeader('cookie', COOKIE);
 		}
 
 	}
@@ -47,9 +49,11 @@ odataProxy.on('proxyReq', function(proxyReq, req, res, options) {
 
 odataProxy.on('proxyRes', function(proxyRes, req, res) {
 	if (req.method === 'HEAD') {
-		console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
-		CSRF = proxyRes.headers["x-csrf-token"];
-		console.log(CSRF);
+		//console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
+		if (!COOKIE) {
+			COOKIE = proxyRes.headers["set-cookie"];
+			console.log("get cookie from set-cookie:...",COOKIE);
+		}
 	}
 
 });
